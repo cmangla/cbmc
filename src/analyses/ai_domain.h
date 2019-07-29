@@ -137,6 +137,11 @@ public:
 
   virtual std::unique_ptr<statet> make_domain(locationt l) const = 0;
   virtual std::unique_ptr<statet> copy_domain(const statet &s) const = 0;
+
+  // Not domain construction but requires knowing the precise type of statet
+  virtual bool
+  merge(statet &dest, const statet &src, locationt from, locationt to)
+    const = 0;
 };
 
 // It would be great to have a single (templated) default implementation.
@@ -153,6 +158,13 @@ public:
   std::unique_ptr<statet> copy_domain(const statet &s) const override
   {
     return util_make_unique<domainT>(static_cast<const domainT &>(s));
+  }
+
+  bool merge(statet &dest, const statet &src, locationt from, locationt to)
+    const override
+  {
+    return static_cast<domainT &>(dest).merge(
+      static_cast<const domainT &>(src), from, to);
   }
 };
 
