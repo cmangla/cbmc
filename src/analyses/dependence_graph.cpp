@@ -322,7 +322,7 @@ public:
     auto p = util_make_unique<dep_graph_domaint>(node_id);
     CHECK_RETURN(p->is_bottom());
 
-    return p;
+    return std::unique_ptr<statet>(p.release());
   }
 
 private:

@@ -192,6 +192,10 @@ public:
   typedef ai_domain_baset::locationt locationt;
   typedef ai_domain_baset::trace_ptrt trace_ptrt;
 
+  virtual ~ai_domain_factory_baset()
+  {
+  }
+
   virtual std::unique_ptr<statet> make_domain(locationt l) const = 0;
   virtual std::unique_ptr<statet> copy_domain(const statet &s) const = 0;
 
@@ -246,7 +250,7 @@ public:
   {
     auto d = util_make_unique<domainT>();
     CHECK_RETURN(d->is_bottom());
-    return d;
+    return std::unique_ptr<statet>(d.release());
   }
 };
 

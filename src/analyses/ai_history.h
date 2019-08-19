@@ -220,6 +220,10 @@ class ai_history_factory_baset
 public:
   // Creates a new history from the given starting point
   virtual ai_history_baset::trace_ptrt bang(ai_history_baset::locationt) = 0;
+
+  virtual ~ai_history_factory_baset()
+  {
+  }
 };
 
 // An easy factory implementation for histories that don't need parameters

@@ -601,6 +601,8 @@ protected:
     return s.get_state(l, *domain_factory);
   }
 
+  using ai_baset::get_state;
+
 private:
   /// This function exists to enforce that `domainT` is derived from
   /// \ref ai_domain_baset

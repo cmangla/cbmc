@@ -43,7 +43,7 @@ public:
   {
     auto p = util_make_unique<rd_range_domaint>(bv_container);
     CHECK_RETURN(p->is_bottom());
-    return p;
+    return std::unique_ptr<statet>(p.release());
   }
 
 private:

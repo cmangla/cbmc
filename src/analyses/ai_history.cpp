@@ -16,7 +16,7 @@ jsont ai_history_baset::output_json(void) const
   std::ostringstream out;
   output(out);
   json_stringt json(out.str());
-  return json;
+  return std::move(json);
 }
 
 xmlt ai_history_baset::output_xml(void) const

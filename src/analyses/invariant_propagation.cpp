@@ -30,7 +30,7 @@ public:
       ip.value_sets, ip.object_store, ip.ns);
     CHECK_RETURN(p->is_bottom());
 
-    return p;
+    return std::unique_ptr<statet>(p.release());
   }
 
 private:
