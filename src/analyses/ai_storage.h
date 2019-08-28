@@ -168,12 +168,12 @@ public:
   }
 
   cstate_ptrt abstract_state_before(
-    locationt t,
+    locationt l,
     const ai_domain_factory_baset &fac) const override
   {
-    typename state_mapt::const_iterator it = state_map.find(t);
+    typename state_mapt::const_iterator it = state_map.find(l);
     if(it == state_map.end())
-      return fac.make_domain(t);
+      return fac.make_domain(l);
 
     return it->second;
   }
