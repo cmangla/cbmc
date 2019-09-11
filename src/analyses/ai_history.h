@@ -62,7 +62,11 @@ public:
   /// so that these (a) make use of the immutability and sharing and
   /// (b) ownership can be transfered if necessary, we use shared pointers
   /// rather than references.
-  /// The custom comparison allows particular histories to control
+  /// One of the uses of this structure is as the work-list of the analyzer.
+  /// Here the ordering of the set is very significant as it controls the
+  /// order of exploration of the program.  This affects performance and in some
+  /// cases it can affect the results.
+  /// This custom comparison allows particular histories to control
   /// the order of exploration.
   struct compare_historyt
   {
@@ -71,7 +75,7 @@ public:
       return *l < *r;
     }
   };
-  typedef std::set<trace_ptrt, compare_historyt> trace_sett;
+  typedef std::set<trace_ptrt, compare_historyt> trace_sett; // Order matters!
 
   enum class step_statust
   {
