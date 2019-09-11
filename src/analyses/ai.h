@@ -120,7 +120,6 @@ class ai_baset
 public:
   typedef ai_domain_baset statet;
   typedef ai_storage_baset::cstate_ptrt cstate_ptrt;
-  typedef ai_history_baset tracet;
   typedef ai_history_baset::trace_ptrt trace_ptrt;
   typedef ai_history_baset::trace_sett trace_sett;
   typedef ai_storage_baset::ctrace_set_ptrt ctrace_set_ptrt;

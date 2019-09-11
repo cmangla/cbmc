@@ -37,11 +37,10 @@ class ai_history_baset
 {
 public:
   typedef goto_programt::const_targett locationt;
-  typedef ai_history_baset tracet;
 
   /// History objects are intended to be immutable so they can be shared
   /// to reduce memory overhead
-  typedef std::shared_ptr<const tracet> trace_ptrt;
+  typedef std::shared_ptr<const ai_history_baset> trace_ptrt;
 
   /// Create a new history starting from a given location
   /// This is used to start the analysis from scratch
