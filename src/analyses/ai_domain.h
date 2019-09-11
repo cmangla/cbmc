@@ -210,7 +210,7 @@ public:
 // function which is used by some of the older domains
 
 // It would be great to have a single (templated) default implementation.
-// However, a default constructor is not part of the ai_domain_baset inteface
+// However, a default constructor is not part of the ai_domain_baset interface
 // and there are some domains which don't have one.  So we need to separate the
 // methods.
 template <typename domainT>
