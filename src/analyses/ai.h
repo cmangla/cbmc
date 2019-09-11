@@ -486,7 +486,7 @@ protected:
   // History creation
   std::unique_ptr<ai_history_factory_baset> history_factory;
 
-  // Domain creation
+  /// For creating domain objects
   std::unique_ptr<ai_domain_factory_baset> domain_factory;
 
   /// Merge the state \p src, flowing from tracet \p from to
