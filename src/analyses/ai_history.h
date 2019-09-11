@@ -221,7 +221,7 @@ public:
 class ai_history_factory_baset
 {
 public:
-  // Creates a new history from the given starting point
+  /// Creates a new history from the given starting point
   virtual ai_history_baset::trace_ptrt bang(ai_history_baset::locationt) = 0;
 
   virtual ~ai_history_factory_baset()
@@ -229,7 +229,7 @@ public:
   }
 };
 
-// An easy factory implementation for histories that don't need parameters
+/// An easy factory implementation for histories that don't need parameters
 template <typename traceT>
 class ai_history_factory_default_constructort : public ai_history_factory_baset
 {
