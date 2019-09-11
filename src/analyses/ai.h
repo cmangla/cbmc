@@ -483,7 +483,7 @@ protected:
     const goto_functionst &goto_functions,
     const namespacet &ns);
 
-  // History creation
+  /// For creating history objects
   std::unique_ptr<ai_history_factory_baset> history_factory;
 
   /// For creating domain objects
