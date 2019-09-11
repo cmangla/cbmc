@@ -79,9 +79,9 @@ public:
     return;
   }
 
-  /// Notifies the storage that the user of the domain will not need the value
+  /// Notifies the storage that the user will not need the domain object(s)
   /// for this location.  After this has been called abstract_state_before may
-  /// return an over-approximation of the domain and get_state may give an
+  /// return an over-approximation of the value and get_state may give an
   /// under-approximation (forcing recomputation).
   /// If there are multiple histories that reach this location all will be
   /// affected
