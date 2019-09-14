@@ -677,7 +677,7 @@ protected:
     tmp.add_instruction();
     goto_programt::const_targett sh_target = tmp.instructions.begin();
     ai_baset::trace_ptrt target_hist =
-      ai_baset::history_factory->bang(sh_target);
+      ai_baset::history_factory->epoch(sh_target);
     statet &shared_state = ait<domainT>::get_state(sh_target);
 
     struct wl_entryt
@@ -726,7 +726,7 @@ protected:
       {
         working_sett working_set;
         ai_baset::trace_ptrt t(
-          ai_baset::history_factory->bang(wl_entry.location));
+          ai_baset::history_factory->epoch(wl_entry.location));
         ai_baset::put_in_working_set(working_set, t);
 
         statet &begin_state = ait<domainT>::get_state(wl_entry.location);

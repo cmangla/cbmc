@@ -222,7 +222,7 @@ class ai_history_factory_baset
 {
 public:
   /// Creates a new history from the given starting point
-  virtual ai_history_baset::trace_ptrt bang(ai_history_baset::locationt) = 0;
+  virtual ai_history_baset::trace_ptrt epoch(ai_history_baset::locationt) = 0;
 
   virtual ~ai_history_factory_baset()
   {
@@ -234,7 +234,7 @@ template <typename traceT>
 class ai_history_factory_default_constructort : public ai_history_factory_baset
 {
 public:
-  ai_history_baset::trace_ptrt bang(ai_history_baset::locationt l) override
+  ai_history_baset::trace_ptrt epoch(ai_history_baset::locationt l) override
   {
     ai_history_baset::trace_ptrt p(new traceT(l));
     return p;
