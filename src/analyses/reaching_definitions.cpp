@@ -39,7 +39,7 @@ public:
     PRECONDITION(bv_container != nullptr);
   }
 
-  std::unique_ptr<statet> make_domain(locationt) const override
+  std::unique_ptr<statet> make(locationt) const override
   {
     auto p = util_make_unique<rd_range_domaint>(bv_container);
     CHECK_RETURN(p->is_bottom());

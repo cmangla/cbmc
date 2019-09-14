@@ -499,7 +499,7 @@ protected:
   /// Make a copy of a state
   virtual std::unique_ptr<statet> make_temporary_state(const statet &s)
   {
-    return domain_factory->copy_domain(s);
+    return domain_factory->copy(s);
   }
 
   // Domain and history storage

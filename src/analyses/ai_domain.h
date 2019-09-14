@@ -196,15 +196,15 @@ public:
   {
   }
 
-  virtual std::unique_ptr<statet> make_domain(locationt l) const = 0;
-  virtual std::unique_ptr<statet> copy_domain(const statet &s) const = 0;
+  virtual std::unique_ptr<statet> make(locationt l) const = 0;
+  virtual std::unique_ptr<statet> copy(const statet &s) const = 0;
 
   // Not domain construction but requires knowing the precise type of statet
   virtual bool
   merge(statet &dest, const statet &src, trace_ptrt from, trace_ptrt to)
     const = 0;
 };
-// Converting make_domain to take a trace_ptr instead of a location would
+// Converting make to take a trace_ptr instead of a location would
 // require removing the backwards-compatible
 //  location_sensitive_storaget::get_state(locationt l)
 // function which is used by some of the older domains
@@ -221,7 +221,7 @@ public:
   typedef ai_domain_factory_baset::locationt locationt;
   typedef ai_domain_factory_baset::trace_ptrt trace_ptrt;
 
-  std::unique_ptr<statet> copy_domain(const statet &s) const override
+  std::unique_ptr<statet> copy(const statet &s) const override
   {
     return util_make_unique<domainT>(static_cast<const domainT &>(s));
   }
@@ -246,7 +246,7 @@ public:
   typedef ai_domain_factory_baset::locationt locationt;
   typedef ai_domain_factory_baset::trace_ptrt trace_ptrt;
 
-  std::unique_ptr<statet> make_domain(locationt l) const override
+  std::unique_ptr<statet> make(locationt l) const override
   {
     auto d = util_make_unique<domainT>();
     CHECK_RETURN(d->is_bottom());

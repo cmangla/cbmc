@@ -179,7 +179,7 @@ public:
   {
     typename state_mapt::const_iterator it = state_map.find(l);
     if(it == state_map.end())
-      return fac.make_domain(l);
+      return fac.make(l);
 
     return it->second;
   }
@@ -200,7 +200,7 @@ public:
     typename state_mapt::const_iterator it = state_map.find(l);
     if(it == state_map.end())
     {
-      std::shared_ptr<statet> d(fac.make_domain(l));
+      std::shared_ptr<statet> d(fac.make(l));
       auto p = state_map.emplace(l, d);
       CHECK_RETURN(p.second);
       it = p.first;
@@ -232,7 +232,7 @@ public:
   {
     auto it = domain_map.find(p);
     if(it == domain_map.end())
-      return fac.make_domain(p->current_location());
+      return fac.make(p->current_location());
 
     return it->second;
   }
@@ -245,7 +245,7 @@ public:
 
     if(traces->size() == 0)
     {
-      return fac.make_domain(t);
+      return fac.make(t);
     }
     else if(traces->size() == 1)
     {
@@ -257,7 +257,7 @@ public:
     else
     {
       // Need to merge all of the traces that reach this location
-      auto res = fac.make_domain(t);
+      auto res = fac.make(t);
 
       for(auto p : *traces)
       {
@@ -278,7 +278,7 @@ public:
     auto it = domain_map.find(p);
     if(it == domain_map.end())
     {
-      std::shared_ptr<statet> d(fac.make_domain(p->current_location()));
+      std::shared_ptr<statet> d(fac.make(p->current_location()));
       auto jt = domain_map.emplace(p, d);
       CHECK_RETURN(jt.second);
       it = jt.first;

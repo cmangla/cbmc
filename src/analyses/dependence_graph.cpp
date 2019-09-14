@@ -315,7 +315,7 @@ public:
   {
   }
 
-  std::unique_ptr<statet> make_domain(locationt l) const override
+  std::unique_ptr<statet> make(locationt l) const override
   {
     auto node_id = dg.add_node();
     dg.nodes[node_id].PC = l;

@@ -24,7 +24,7 @@ public:
   {
   }
 
-  std::unique_ptr<statet> make_domain(locationt l) const override
+  std::unique_ptr<statet> make(locationt l) const override
   {
     auto p = util_make_unique<invariant_set_domaint>(
       ip.value_sets, ip.object_store, ip.ns);
