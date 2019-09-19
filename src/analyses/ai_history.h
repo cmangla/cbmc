@@ -42,6 +42,7 @@ public:
   /// to reduce memory overhead
   typedef std::shared_ptr<const ai_history_baset> trace_ptrt;
 
+protected:
   /// Create a new history starting from a given location
   /// This is used to start the analysis from scratch
   /// PRECONDITION(l.is_dereferenceable());
@@ -53,6 +54,7 @@ public:
   {
   }
 
+public:
   virtual ~ai_history_baset()
   {
   }
