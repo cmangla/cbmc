@@ -42,6 +42,12 @@ public:
   typedef ait<invariant_set_domaint> baset;
 
 protected:
+  // Each invariant_set_domain needs access to a few of the fields of the
+  // invariant_propagation object.  This is a historic design that predates
+  // the current interfaces.  Removing it would require a substantial refactor.
+  // A minimally-intrusive work around is for the domain factory to be a
+  // friend of the analyser object and create domains with references to the
+  // relevant fields.
   friend invariant_set_domain_factoryt;
 
   const namespacet &ns;
