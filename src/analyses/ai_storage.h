@@ -32,11 +32,12 @@ Author: Martin Brain, martin.brain@cs.ox.ac.uk
 /// The abstract interpreters should use this interface by default.
 class ai_storage_baset
 {
-public:
+protected:
   ai_storage_baset()
   {
   }
 
+public:
   virtual ~ai_storage_baset()
   {
   }
